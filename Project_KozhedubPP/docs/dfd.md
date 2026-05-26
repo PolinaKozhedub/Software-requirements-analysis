@@ -1,5 +1,10 @@
+# Диаграмма потоков данных (DFD) — Уровень 1 
+
 ```mermaid
 graph TD
+    %% Настройка направления (top to bottom)
+    direction TB
+
     %% Внешние сущности (Акторы)
     HR["Сотрудник Отдела кадров (ОК)"]
     Disp["Диспетчер цеха"]
@@ -40,7 +45,7 @@ graph TD
     Lab -->|ID стенда, параметры тестов, статус| P4
     DB_Products -->|Проверка готовности изделия| P4
     P4 -->|Запись протокола контроля качества| DB_Tests
-    P4 -->|Смена статуса (Готов / Брак)| DB_Products
+    P4 -->|Смена статуса Готов / Брак| DB_Products
     P4 -->|Форма электронного паспорта для печати| Lab
 
     %% Потоки данных для Процесса 5 (Аналитика для руководства)
@@ -50,18 +55,18 @@ graph TD
     DB_Tests -->|Статистика брака и прохождения тестов| P5
     P5 -->|Сводные таблицы, графики KPI, файлы экспорта| Dir
 
-    %% Стилизация элементов для наглядности
+    %% Настройка стилей (согласно вашему skinparam)
     style HR fill:#f9f,stroke:#333,stroke-width:2px
     style Disp fill:#f9f,stroke:#333,stroke-width:2px
     style Lab fill:#f9f,stroke:#333,stroke-width:2px
     style Dir fill:#f9f,stroke:#333,stroke-width:2px
     
-    style DB_Staff fill:#fff7c2,stroke:#333,stroke-width:2px
-    style DB_Products fill:#fff7c2,stroke:#333,stroke-width:2px
-    style DB_Tests fill:#fff7c2,stroke:#333,stroke-width:2px
-
     style P1 fill:#c2f1ff,stroke:#333,stroke-width:1px
     style P2 fill:#c2f1ff,stroke:#333,stroke-width:1px
     style P3 fill:#c2f1ff,stroke:#333,stroke-width:1px
     style P4 fill:#c2f1ff,stroke:#333,stroke-width:1px
     style P5 fill:#c2f1ff,stroke:#333,stroke-width:1px
+    
+    style DB_Staff fill:#fff7c2,stroke:#333,stroke-width:2px
+    style DB_Products fill:#fff7c2,stroke:#333,stroke-width:2px
+    style DB_Tests fill:#fff7c2,stroke:#333,stroke-width:2px
