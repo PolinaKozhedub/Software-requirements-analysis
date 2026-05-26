@@ -19,9 +19,9 @@ graph TD
     P5(("5. Сводная аналитика<br>и отчетность"))
 
     %% Накопители данных (Базы данных / Таблицы)
-    DB_Staff[("(DB) База кадров и структур")]
-    DB_Products[("(DB) База изделий и маршрутов")]
-    DB_Tests[("(DB) База испытаний")]
+    DB_Staff[("DB: База кадров и структур")]
+    DB_Products[("DB: База изделий и маршрутов")]
+    DB_Tests[("DB: База испытаний")]
 
     %% Потоки данных для Процесса 1 (Кадры)
     HR -->|Данные сотрудников, ИТР, цехов| P1
@@ -31,11 +31,11 @@ graph TD
 
     %% Потоки данных для Процесса 2 (Регистрация продукции)
     Disp -->|Заводской номер, категория машины| P2
-    P2 -->|Новая карточка машины (статус: Сборка)| DB_Products
+    P2 -->|Новая карточка машины [статус - Сборка]| DB_Products
     P2 -->|Подтверждение успешной записи| Disp
 
     %% Потоки данных для Процесса 3 (Движение по цеху)
-    Disp -->|ID изделия, целевой участок, № бригады| P3
+    Disp -->|ID изделия, целевой участок, номер бригады| P3
     DB_Staff -->|Данные о квалификации и активности бригады| P3
     DB_Products -->|Текущая технологическая позиция| P3
     P3 -->|Обновление шага маршрута и времени| DB_Products
@@ -45,7 +45,7 @@ graph TD
     Lab -->|ID стенда, параметры тестов, статус| P4
     DB_Products -->|Проверка готовности изделия| P4
     P4 -->|Запись протокола контроля качества| DB_Tests
-    P4 -->|Смена статуса Готов / Брак| DB_Products
+    P4 -->|Смена статуса Готов или Брак| DB_Products
     P4 -->|Форма электронного паспорта для печати| Lab
 
     %% Потоки данных для Процесса 5 (Аналитика для руководства)
@@ -55,18 +55,10 @@ graph TD
     DB_Tests -->|Статистика брака и прохождения тестов| P5
     P5 -->|Сводные таблицы, графики KPI, файлы экспорта| Dir
 
-    %% Настройка стилей (согласно вашему skinparam)
+    %% Настройка стилей
     style HR fill:#f9f,stroke:#333,stroke-width:2px
     style Disp fill:#f9f,stroke:#333,stroke-width:2px
     style Lab fill:#f9f,stroke:#333,stroke-width:2px
     style Dir fill:#f9f,stroke:#333,stroke-width:2px
     
-    style P1 fill:#c2f1ff,stroke:#333,stroke-width:1px
-    style P2 fill:#c2f1ff,stroke:#333,stroke-width:1px
-    style P3 fill:#c2f1ff,stroke:#333,stroke-width:1px
-    style P4 fill:#c2f1ff,stroke:#333,stroke-width:1px
-    style P5 fill:#c2f1ff,stroke:#333,stroke-width:1px
-    
-    style DB_Staff fill:#fff7c2,stroke:#333,stroke-width:2px
-    style DB_Products fill:#fff7c2,stroke:#333,stroke-width:2px
-    style DB_Tests fill:#fff7c2,stroke:#333,stroke-width:2px
+    style P
