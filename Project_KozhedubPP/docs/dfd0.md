@@ -29,7 +29,7 @@ graph LR
     Director -->|"Запросы на формирование отчетности (период, цех)"| System
     System -->|"Отчет по движению кадров<br>Отчет по выпускаемой продукции"| Director
 
-    %% Стилизация под пример
+    %% Стилизация
     style System fill:#f0f4f8,stroke:#1a365d,stroke-width:2px;
     style Dispatcher fill:#eef2f7,stroke:#4a5568,stroke-width:1px;
     style Lab fill:#eef2f7,stroke:#4a5568,stroke-width:1px;
