@@ -1,10 +1,9 @@
 @startuml
-title Диаграмма потоков данных (DFD) — Уровень 1 (Вертикальная)
+title Диаграмма потоков данных (DFD) — Уровень 1 
 
-' Направление сверху вниз (по умолчанию для PlantUML)
 top to bottom direction
 
-' Настройка стилей для соответствия типам DFD
+' Настройка стилей
 skinparam Component {
     BackgroundColor<<Актор>> #f9f
     BackgroundColor<<Процесс>> #c2f1ff
